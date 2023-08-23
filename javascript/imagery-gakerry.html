@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image gallery</title>
+</head>
+
+<body>
+    <h1>Image gallery example</h1>
+
+    <div class="full-img">
+        <img class="displayed-img" src="images/pic1.jpg" alt="Closeup of a blue human eye" />
+        <div class="overlay"></div>
+        <button class="dark">Darken</button>
+    </div>
+
+    <div class="thumb-bar"></div>
+    <script>
+        const imageFilenames = ["pic1.jpg", "pic2.jpg", "pic3.jpg"];
+        // putting alternative text if the picure isn't supported
+        const altTexts = {
+            "pic1.jpg": "Human eye",
+            "pic2.jpg": "Mountains",
+            "pic3.jpg": "art work",
+        }
+        const thumbBar = document.querySelector(".thumb-bar");
+        const displayedImg = document.querySelector(".display-img");
+        const darkenButton = document.querySelector(".dark");
+
+        imageFilenames.forEachflename = {
+            const: imgElement = document.createElement("img"),
+            imgElement, src= `imaages/${filename}`,
+            imgElement, alt= altTexts[filename],
+            imgElement, addEventListener("click"{
+                displayedImg, src = imgElement.src,
+                displayImg, alt = imgElement.alt,
+
+            })
+            ,thumbBar,appendChild(imgElement){}
+
+        }
+        let darkenEffectApplied = false;
+        darkenButton.addEventListener("click", () => {
+            if (darkenEffectApplied) {
+                displayedImg.classList.remove("darken");
+            } else {
+                displayImg.classList.add("darken");
+            }
+            darkenEffectApplied = !darkenEffectApplied
+        })
+
+
+
+    </script>
+</body>
+
+</html>

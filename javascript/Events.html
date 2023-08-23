@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <button>Change color</button>
+    <input id="textBox" type="text" />
+<div id="output"></div>
+
+    <form>
+        <div>
+          <label for="fname">First name: </label>
+          <input id="fname" type="text" />
+        </div>
+        <div>
+          <label for="lname">Last name: </label>
+          <input id="lname" type="text" />
+        </div>
+        <div>
+          <input id="submit" type="submit" />
+        </div>
+      </form>
+      <p></p>
+      <button>Display video</button>
+
+<div class="hidden">
+  <video>
+    <source
+      src="http://electronicitems.tumblr.com/post/111806411641/minitel" />
+    <p>
+      Your browser doesn't support HTML video. Here is a
+      <a href="computer .mp4">link to the video</a> instead.
+    </p>
+  </video>
+</div>
+
+      
+
+
+
+    <script>
+const btn = document.querySelector("button");
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+btn.addEventListener("click", () => {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+});
+const textBox = document.querySelector("#textBox");
+const output = document.querySelector("#output");
+textBox.addEventListener("keydown", (event) => {
+  output.textContent = `You pressed "${event.key}".`;
+});
+const form = document.querySelector("form");
+const fname = document.getElementById("fname");
+const lname = document.getElementById("lname");
+const para = document.querySelector("p");
+
+form.addEventListener("submit", (e) => {
+  if (fname.value === "" || lname.value === "") {
+    e.preventDefault();
+    para.textContent = "You need to fill in both names!";
+  }
+});
+
+ const button = document.querySelector("button");
+const box = document.querySelector("div");
+const video = document.querySelector("video");
+
+btn.addEventListener("click", () => box.classList.remove("hidden"));
+video.addEventListener("click", () => video.play());
+box.addEventListener("click", () => box.classList.add("hidden"));
+
+
+    </script>
+</body>
+</html>

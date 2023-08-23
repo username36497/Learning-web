@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays
+    </title>
+</head>
+<body>
+    <script>
+       const shopping = ["bread", "milk", "cheese", "hummus", "noodles"];
+console.log(shopping);
+const shopping = ["bread", "milk", "cheese", "hummus", "noodles"];
+console.log(shopping.length); // 5
+
+const shopping = ["bread", "milk", "cheese", "hummus", "noodles"];
+console.log(shopping[0]);
+
+const birds = ["Parrot", "Falcon", "Owl"];
+console.log(birds.indexOf("Owl")); //  2
+console.log(birds.indexOf("Rabbit")); // -1
+
+const cities = ["Manchester", "Liverpool"];
+cities.push("Cardiff");
+console.log(cities); // [ "Manchester", "Liverpool", "Cardiff" ]
+cities.push("Bradford", "Brighton");
+console.log(cities); // [ "Manchester", "Liverpool", "Cardiff", "Bradford", "Brighton" ]
+
+
+const cities = ["Manchester", "Liverpool"];
+cities.shift();
+console.log(cities); // [ "Liverpool" ]
+
+const data = "Manchester,London,Liverpool,Birmingham,Leeds,Carlisle";
+const cities = data.split(",");
+cities;
+cities.length;
+cities[0]; // the first item in the array
+cities[1]; // the second item in the array
+cities[cities.length - 1]; // the last item in the array
+
+    </script>
+</body>
+</html>

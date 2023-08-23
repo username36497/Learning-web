@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to javascript</title>
+    <style>
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            border: 2px solid rgb(0 0 200 / 0.4);
+            background: rgb(0 0 200 / 0.4);
+            color: rgb(255 255 255 / 0.4);
+            box-shadow: 1px 1px 2px rgb(0 0 200 /0.6);
+            border-radius: 10px;
+            padding: 3px 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>Player 1: Gael</p>
+
+    <div class="resultParas">
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="loworHi"></p>
+    </div>
+    <label for="guessField">Enter a guess:</label>
+    <input type="number" id="guessField" class="guessField" />
+    <input type="submit" value="submit guess" class="guessSubmit" />
+
+    <button id="button-A">Click here</button>
+    <h3 id="heading-A"></h3>
+
+
+    <script>
+        const para = document.querySelector("p");
+        para.addEventListener("click", updateName);
+
+        function updateName() {
+            const name = prompt("enter a new name");
+            para.textContent = `Player 1: ${name}`;
+
+        }
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        const guesses = document.querySelector(".guesses");
+        const lastResult = document.querySelector(".lastResult");
+        const loworHi = document.querySelector(".loworHi")
+
+        const guessSubmit = document.querySelector(".guessSubmit");
+        const guessField = document.querySelector(".guessField")
+
+        let guessCount = 1;
+        let resetButton;
+
+        function checkGuess() {
+            alert("I am a placeholder");
+            checkGuess();
+        }
+        function checkGuess() {
+            const userGuess = Number(guessField.value);
+            if (guessCount === 1) {
+                guesses.textContent = "Previous guesses: ";
+            }
+            guesses.textContent += `${userGuess} `;
+
+            if (userGuess === randomNumber) {
+                lastResult.textContent = "Congratulations! You got it right!";
+                lastResult.style.backgroundcolor = "green";
+                loworHi.textContent = "";
+                setGameOver();
+            } else if (guessCount === 10) {
+                lastResult.textContent = "!!! GAME OVER!!!"
+                loworHi.textContent = "";
+                setGameOver();
+            } else {
+                lastResult.textContent = "Wrong";
+                lastResult.style.backgroundcolor = "red"
+                if (userGuess < randomNumber) {
+                    loworHi.textContent = "Last guess was too low!";
+                } else if (userGuess > randomNumber) {
+                    loworHi.textContent = "Last guess was too high!";
+                }
+            }
+            guessCount++;
+            guessFIeld.value = "";
+            guessFIeld.focus();
+        }
+        guessCount === 1;
+        guessSubmit.addEventListener("click", checkGuess);
+
+        function setGameOver() {
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+            resetButton = document.createElement("button");
+            resetButton.textContent = "Start new game";
+            document.body.append(resetButton);
+            resetButton.addEventListener("click", resetGame)
+        }
+
+        function resetGame() {
+            guessCount = 1;
+
+            const resetParas = document.querySelectorAll("resultParas p");
+            for (const restPara of resetParas) {
+                resetPara.textContent = "";
+            }
+            resetButton.parentNode.removeChild(resetButton);
+
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = ""
+            guessField.focus();
+
+            lastResult.style.backgroundcolor = "white";
+
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        }
+        const resetParas = document.querySelectorAll(".resultParas P");
+        for (const resetPara of resetParas) {
+            resetPara.textContent = "";
+        }
+        guessField.focus();
+
+        const guessFIeld = document.querySelector(".guessField");
+
+        guessField.focus();
+
+        guessField.value = 2;
+        guesses.value;
+
+        const buttonA = document.querySelector("#button-A");
+        const headingA = document.querySelector("#heading-A");
+
+        buttonA.onclick = () => {
+            const name = prompt("what is your name?");
+            alert(`Hello ${name}, nice to meet you!`);
+            headingA.textContent = `Welcome ${name}`;
+        };      
+    </script>
+
+</body>
+
+</html>
